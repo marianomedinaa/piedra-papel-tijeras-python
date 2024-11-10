@@ -12,14 +12,19 @@ while  puntaje1 < 2 and puntaje2 < 2:
     condicion2 = jugador1.lower() == "papel" and jugador2.lower() == "piedra"
     condicion3 = jugador1.lower() == "tijeras" and jugador2.lower() == "papel"
 
-    if jugador1.lower() == jugador2.lower():
-        print("ha sido un empate!")
-    elif condicion1 or condicion2 or condicion3:
-        print(f'ha ganado {nombre1}!')
-        puntaje1 += 1
+    noerror = (jugador1 == "piedra" or jugador1 == "papel" or jugador1 == "tijeras") and (jugador2 == "piedra" or jugador2 == "papel" or jugador2 == "tijeras")
+    
+    if noerror is False:
+        print('Palabra incorrecta! Ingresar solo "Piedra", "Papel" o "Tijeras"')
     else:
-        print(f'ha ganado {nombre2}!')
-        puntaje2 += 1
+        if jugador1.lower() == jugador2.lower():
+            print("ha sido un empate!")
+        elif condicion1 or condicion2 or condicion3:
+            print(f'ha ganado {nombre1}!')
+            puntaje1 += 1
+        else:
+            print(f'ha ganado {nombre2}!')
+            puntaje2 += 1
     
     print(f"Puntaje: {nombre1} {puntaje1} - {nombre2} {puntaje2}\n")
 
